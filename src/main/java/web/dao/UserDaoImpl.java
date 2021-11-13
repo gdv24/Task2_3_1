@@ -46,7 +46,7 @@ public class UserDaoImpl{
 //    }
 
     public User show(int id){
-        TypedQuery<User> query = entityManager.createQuery("select u from User u WHERE u.id=:id",User.class);
+        TypedQuery<User> query = entityManager.createQuery("select u from User u where u.id=:id",User.class);
         query.setParameter("id",id);
         return query.getSingleResult();
     }
@@ -71,12 +71,13 @@ public class UserDaoImpl{
 //    }
     @Transactional
     public void update(int id, User updateUser){
-        Query query = entityManager.createQuery("select u from User u WHERE u.id=:id");
+        Query query = entityManager.createQuery("select u from User u where u.id=:id");
         query.setParameter("id",id);
         User userToUpdate = (User) query.getSingleResult();
         userToUpdate.setName(updateUser.getName());
         userToUpdate.setAge(updateUser.getAge());
         userToUpdate.setEmail(updateUser.getEmail());
+        userToUpdate.setPassword(updateUser.getPassword());
     }
 
 //    @Transactional
