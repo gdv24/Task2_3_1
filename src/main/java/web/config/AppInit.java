@@ -8,7 +8,6 @@ import javax.servlet.Filter;
 import javax.servlet.FilterRegistration;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
-import javax.sql.rowset.serial.SerialException;
 
 public class AppInit extends AbstractAnnotationConfigDispatcherServletInitializer {
     @Override
